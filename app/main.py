@@ -6,13 +6,14 @@ from pydantic import BaseModel
 from motor.motor_asyncio import AsyncIOMotorClient
 from passlib.context import CryptContext
 from fastapi import Request
+from fastapi.staticfiles import StaticFiles
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = FastAPI()
-
+app.mount("static/", StaticFiles(directory="static"), name="static")
 
 MONGODB_URI = os.getenv("MONGODB_URI")
 client = AsyncIOMotorClient(MONGODB_URI)
