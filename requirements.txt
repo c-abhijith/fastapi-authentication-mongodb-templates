@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+motor
+passlib
+python-dotenv
+jwt
+bcrypt
